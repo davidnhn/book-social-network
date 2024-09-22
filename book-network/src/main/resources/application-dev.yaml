@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/book_social_network
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+#    host: localhost
+    host: smtp.gmail.com
+#    port: 1025
+    port: 465
+#    username: david
+#    password: david
+    username: david.simon.nahon@gmail.com
+    password: gxkqalmqspytdcug
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            trust: "*"
+          starttls:
+            enabled: true
+#        connectiontimeout: 5000
+#        timeout: 3000
+#        writetimeout: 5000
+    protocol: smtp
+
+application:
+  security:
+    jwt:
+      secret-key: 5c68e14c9a419197d8ebe18b07b59ef6e0b514359d895394e9046a151e00d1ad
+      expiration: 8640000
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
+  file:
+    upload:
+      photo-output-path: ./uploads
+server:
+  port: 8088

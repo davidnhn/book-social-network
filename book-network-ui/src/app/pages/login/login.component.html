@@ -1,0 +1,39 @@
+<div class="container-fluid card login-container">
+<h3 class="text-center">Login</h3>
+  <hr>
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length">
+    <p *ngFor="let msg of errorMsg">{{msg}}</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input [(ngModel)]="authRequest.email" type="email" class="form-control" id="login" placeholder="name@exemple.com">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input [(ngModel)]="authRequest.password" type="password" class="form-control" id="password" placeholder="password">
+  </div>
+  <div class="d-flex justify-content-between mb-3">
+    <button (click)="login()" type="button" class="btn btn-primary">
+      <em class="fas fa-sign-in-alt">&nbsp;Sign in</em>
+    </button>
+    <div>
+      Don't have an account?&nbsp;
+    <button (click)="register()" type="button" class="btn btn-link">
+      Register
+    </button>
+    </div>
+  </div>
+</div>
+<!--
+[(ngModel)]="authRequest.email" est une syntaxe de liaison de données bidirectionnelle (two-way data binding) en Angular. Cette syntaxe est toujours utilisée dans les versions récentes d'Angular, bien qu'il existe des alternatives.
+Voici ce que fait cette syntaxe :
+1. Elle crée une liaison bidirectionnelle entre la propriété 'email' de l'objet 'authRequest' dans votre composant et la valeur de l'élément input dans le template HTML.
+2. Lorsque l'utilisateur tape dans le champ input, la valeur de 'authRequest.email' dans votre composant est automatiquement mise à jour.
+3. Si 'authRequest.email' est modifié dans le composant (par exemple, par une autre logique), la valeur affichée dans l'input sera également mise à jour.
+Cette syntaxe combine deux liaisons :
+* La liaison de propriété [ngModel]="authRequest.email"
+* La liaison d'événement (ngModelChange)="authRequest.email=$event"
+L'utilisation de [(ngModel)] est un raccourci pour ces deux liaisons combinées.
+Il est important de noter que pour utiliser ngModel, vous devez importer le FormsModule dans votre module Angular.
+Bien que cette syntaxe soit toujours valide et largement utilisée, Angular propose également d'autres approches pour la gestion des formulaires, notamment les formulaires réactifs (Reactive Forms), qui offrent plus de contrôle et de flexibilité pour des scénarios complexes.
+-->

@@ -1,0 +1,36 @@
+<div class="rating">
+  <ng-container *ngFor="let _ of [].constructor(fullStars); let i = index">
+    <i class="fas fa-star text-warning"></i>
+  </ng-container>
+  <ng-container *ngIf="hasHalfStar">
+    <i class="fas fa-star-half-alt text-warning"></i>
+  </ng-container>
+  <ng-container *ngFor="let _ of [].constructor(emptyStars); let i= index">
+    <i class="fas fa-star"></i>
+  </ng-container>
+</div>
+
+
+<!--
+  Composant RatingComponent pour afficher une évaluation en étoiles.
+
+  Utilisation de ng-container et ngFor :
+  - `ng-container` est utilisé pour regrouper des éléments sans ajouter de balises supplémentaires dans le DOM.
+  - La syntaxe `*ngFor="let _ of [].constructor(fullStars); let i = index"` crée un tableau vide de longueur `fullStars`
+    afin d'itérer sur ce tableau et générer dynamiquement des étoiles pleines.
+
+  Explication des sections :
+  - Pleine étoiles :
+    Utilise `*ngFor` avec `[].constructor(fullStars)` pour générer un nombre d'étoiles pleines en fonction de `fullStars`.
+
+  - Demi-étoile :
+    Utilise `*ngIf="hasHalfStar"` pour afficher une demi-étoile si `hasHalfStar` est vrai.
+
+  - Étoiles vides :
+    Utilise `*ngFor` avec `[].constructor(emptyStars)` pour générer un nombre d'étoiles vides en fonction de `emptyStars`.
+
+  Exemple d'utilisation :
+  - `fullStars` calcule le nombre d'étoiles pleines à afficher.
+  - `hasHalfStar` détermine si une demi-étoile doit être affichée.
+  - `emptyStars` calcule le nombre d'étoiles vides à afficher.
+-->
